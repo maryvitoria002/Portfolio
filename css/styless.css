@@ -1,0 +1,23 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    background-color: #650000;
+    width: 100%;
+}
+
+div{
+    width: 50%;
+    margin: auto;
+    padding-top: 200px;
+}
+
+img{
+    width: 120%;
+}
+
+header {
+    background-color: #650000;
+}
