@@ -1,0 +1,249 @@
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Evitar rolagem */
+}
+
+/* Cabeçalho fixo no topo */
+.topinho {
+    width: 100%;
+    height: 1%;
+    background-color: #7a0000;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 1;
+}
+
+/* conteúdo */
+.conteudo {
+    padding-top: 60px; /* Espaço do cabeçalho fixo */
+    height: 100vh;
+    background-color: #937656; 
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* Estilo do grid para as pastas */
+.apps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+    grid-gap: 20px; /* Espaçamento entre as colunas */
+    padding: 20px;
+}
+
+/* Estilo de cada ícone de pasta */
+.app {
+    text-align: center;
+    width: 100px;
+    height: 120px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: transparent; /* Sem fundo */
+    cursor: pointer;
+    transition: all 0.1s ease;
+    border: 2px solid transparent; /* Sem borda quando não selecionada */
+}
+
+.app img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.app p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 5px;
+}
+
+/* Seleção das pastas (com fundo branco quando ativo) */
+.app.selected {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-color: #600002; /* Borda vermelha quando selecionada */
+}
+
+/* Efeito de hover para os ícones das pastas */
+.app:hover {
+    background-color: #f0f0f038; /* Mudança de cor ao passar o mouse */
+}
+
+/* Estilo da área de fundo (wallpaper) */
+.fotowallpaper img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Barra de tarefas fixa no final */
+.barraTarefas {
+    width: 100%;
+    height: 3em;
+    background-color: #680002; /* Cor vermelha */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 1;
+}
+
+/* Estilo do botão de estrela na barra de tarefas */
+.estrela {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Ícone da estrela */
+.estrela i {
+    font-size: 1.5em;
+}
+
+/* Overlay para fundo com blur */
+.app-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Tela específica do app */
+.app-screen {
+    position: fixed;
+    left: 0;
+    top: 100%;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    transform-origin: bottom left;
+    animation: appEnterMac 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes appEnterMac {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.02) translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+    }
+    100% {
+        transform: scale(1) translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+/* Animação de saída */
+.app-screen.closing {
+    animation: appExitMac 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes appExitMac {
+    0% {
+        transform: scale(1) translate(-50%, -50%);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.8) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+/* Estilo do cabeçalho da janela do app */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    border-radius: 10px 10px 0 0;
+}
+
+.app-header h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 0 5px;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* Conteúdo do app */
+.app-content {
+    padding: 20px;
+    height: calc(100% - 60px); /* Altura total menos altura do header */
+    overflow-y: auto;
+}
+
+/* Estilo do relógio na barra de tarefas */
+.relogio {
+    margin-left: auto;
+    margin-right: 20px;
+    color: white;
+}
+
+.relogio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+}
+
+#hora {
+    font-size: 1em;
+}
+
+#data {
+    font-size: 0.9em;
+    text-transform: capitalize;
+}
+
+.copyright{
+    font-size: 0.8rem;
+    text-align: center;
+}

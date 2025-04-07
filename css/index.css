@@ -1,4 +1,107 @@
-body{
-    background: rgb(111, 5, 5) url(../img/telaBloqueio2.jpeg) no-repeat;
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Adicionar pseudo-elemento para aplicar o blur */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../img/telaBloqueio2.jpeg) no-repeat;
     background-size: cover;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.tela-bloqueio img {
+    border-radius: 100px;
+    width: 25%;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(49, 3, 3, 0.179);
+}
+
+.tela-bloqueio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tela-bloqueio h2 {
+    font-size: 1.5rem;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    margin-block: 10px;
+    text-align: center;
+}
+
+.tela-bloqueio input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 220px;
+    background-color: rgba(255, 255, 255, 0.0);
+    outline: none;
+}
+
+.tela-bloqueio input::placeholder {
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-weight: 500;
+}
+
+.tela-bloqueio input:focus {
+    outline: none;
+}
+
+.senha-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: rgba(7, 7, 7, 0.4);
+}
+
+.senha-div:focus-within {
+    border-bottom: 2px solid #c54b30da;
+}
+
+.senha-div button, button {
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.0);
+    margin: 3px;
+}
+
+#esqueci{
+    cursor: pointer;
+}
+
+.senha-div button:hover {
+    background-color: #c54b30da;
+    cursor: pointer;
+}
+
+.senha-div button i {
+    font-size: 1rem;
+    padding: 5px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.0);
 }

@@ -7,9 +7,9 @@
 ?>
 
 <body>
-    <?php include_once("./components/header.php")?>
-
-
-    <?php include_once("./components/footer.php")?>
+    <div class="experiencia-content">
+        <h3>Minha Experiência Profissional</h3>
+        <!-- Conteúdo específico aqui -->
+    </div>
 </body>
 
