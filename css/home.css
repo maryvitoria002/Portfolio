@@ -21,10 +21,24 @@ body {
 .conteudo {
     padding-top: 60px; /* Espaço do cabeçalho fixo */
     height: 100vh;
-    background-color: #937656; 
+    background: url('../img/wallpaper1.jpeg') no-repeat center center fixed; /* Fundo da tela */
+    background-size: cover; /* Ajusta o fundo para cobrir toda a tela */
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    position: relative;
+}
+
+/* Estilo do grid para as pastas */
+.apps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+    grid-gap: 20px; /* Espaçamento entre as colunas */
+    padding: 20px;
+}
+
+/* Estilo de cada ícone de pasta */
+.app {
     position: relative;
 }
 
@@ -55,33 +69,36 @@ body {
     margin-bottom: 10px;
 }
 
+.arquivo{
+    margin-left: 8px;
+}
+
 .app p {
     font-size: 14px;
     color: #333;
     margin-top: 5px;
 }
 
-/* Seleção das pastas (com fundo branco quando ativo) */
-.app.selected {
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-color: #600002; /* Borda vermelha quando selecionada */
-}
 
-/* Efeito de hover para os ícones das pastas */
 .app:hover {
-    background-color: #f0f0f038; /* Mudança de cor ao passar o mouse */
+    background-color: #f0f0f038; 
 }
 
-/* Estilo da área de fundo (wallpaper) */
-.fotowallpaper img {
+.fotowallpaper {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.1;
-    z-index: -1;
+    top: 40%;
+    right: 0;
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    width: auto; /* Ajusta a largura automaticamente */
+    height: 100%; /* Ajusta a altura para cobrir uma boa parte da tela */
 }
+
+.fotowallpaper img {
+    width: auto;
+    height: 100%; /* Ajusta a altura para ocupar o máximo possível */
+    object-fit: cover; /* Garante que a imagem cubra toda a área disponível */
+}
+
 
 /* Barra de tarefas fixa no final */
 .barraTarefas {
@@ -101,18 +118,56 @@ body {
 
 /* Estilo do botão de estrela na barra de tarefas */
 .estrela {
+    position: relative;
+    cursor: pointer;
     width: 2.5em;
     height: 2.5em;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 }
 
 /* Ícone da estrela */
 .estrela i {
     font-size: 1.5em;
+}
+
+/* Star menu styling */
+.estrela-menu {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    background-color: #202020;
+    border: 1px solid #424242;
+    border-radius: 5px;
+    width: 180px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.estrela-menu.show {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.menu-item {
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+    background-color: #3a3a3a;
+}
+
+.menu-item i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
 }
 
 /* Overlay para fundo com blur */
@@ -246,4 +301,40 @@ body {
 .copyright{
     font-size: 0.8rem;
     text-align: center;
+}
+
+/* Animation screens */
+.animation-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.suspend-screen {
+    background-color: #5a0202;
+}
+
+.restart-screen {
+    background-color: #1a1a1a;
+}
+
+.shutdown-screen {
+    background-color: #000;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }

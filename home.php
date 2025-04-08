@@ -19,7 +19,7 @@
                         <p>Projetos</p>
                     </div>
                     <div class="app" id="resumo">
-                        <img src="./img/folder.png" alt="Resumo" class="pasta">
+                        <img src="./img/file.png" alt="Resumo" class="arquivo">
                         <p>Resumo</p>
                     </div>
                     <div class="app" id="experiencia">
@@ -50,6 +50,20 @@
         <div class="barraTarefas">
             <div class="estrela">
                 <i class="fa-solid fa-star" style="color:rgb(255, 255, 255);"></i>
+                <div class="estrela-menu">
+                    <div class="menu-item" id="suspender">
+                        <i class="fa-solid fa-moon"></i>
+                        <span>Suspender</span>
+                    </div>
+                    <div class="menu-item" id="reiniciar">
+                        <i class="fa-solid fa-sync"></i>
+                        <span>Reiniciar</span>
+                    </div>
+                    <div class="menu-item" id="desligar">
+                        <i class="fa-solid fa-power-off"></i>
+                        <span>Desligar</span>
+                    </div>
+                </div>
             </div>
             <div class="relogio">
                 <div class="relogio-container">
@@ -62,4 +76,5 @@
     </main>
 
     <script src="js/appAnimation.js"></script>
+    <script src="js/systemMenu.js"></script>
 </body>
