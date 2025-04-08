@@ -1,9 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Evitar rolagem */
+    overflow: hidden;
 }
 
-/* Cabeçalho fixo no topo */
+/* ===== CABEÇALHO ===== */
 .topinho {
     width: 100%;
     height: 1%;
@@ -17,50 +17,41 @@ body {
     z-index: 1;
 }
 
-/* conteúdo */
+.copyright {
+    font-size: 12px;
+    color: #fff;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
 .conteudo {
-    padding-top: 60px; /* Espaço do cabeçalho fixo */
-    height: 100vh;
-    background: url('../img/wallpaper1.jpeg') no-repeat center center fixed; /* Fundo da tela */
-    background-size: cover; /* Ajusta o fundo para cobrir toda a tela */
+    padding-top: 60px;
+    min-height: 100vh; /* Trocado de height para min-height */
+    background: url('../img/wallpaper1.jpeg') no-repeat center center;
+    background-size: cover;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     position: relative;
 }
 
-/* Estilo do grid para as pastas */
+/* ===== GRID E APLICATIVOS ===== */
 .apps {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
-    grid-gap: 20px; /* Espaçamento entre as colunas */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     padding: 20px;
 }
 
-/* Estilo de cada ícone de pasta */
-.app {
-    position: relative;
-}
-
-/* Estilo do grid para as pastas */
-.apps {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
-    grid-gap: 20px; /* Espaçamento entre as colunas */
-    padding: 20px;
-}
-
-/* Estilo de cada ícone de pasta */
 .app {
     text-align: center;
     width: 100px;
     height: 120px;
     padding: 10px;
     border-radius: 8px;
-    background-color: transparent; /* Sem fundo */
+    background-color: transparent;
     cursor: pointer;
     transition: all 0.1s ease;
-    border: 2px solid transparent; /* Sem borda quando não selecionada */
+    border: 2px solid transparent;
 }
 
 .app img {
@@ -69,7 +60,7 @@ body {
     margin-bottom: 10px;
 }
 
-.arquivo{
+.arquivo {
     margin-left: 8px;
 }
 
@@ -79,15 +70,16 @@ body {
     margin-top: 5px;
 }
 
-
 .app:hover {
-    background-color: #f0f0f038; 
+    background-color: #f0f0f038;
 }
 
+/* Wallpaper */
 .fotowallpaper {
     position: absolute;
     top: 40%;
     right: 0;
+    pointer-events: none;
     transform: translateY(-50%); /* Centraliza verticalmente */
     width: auto; /* Ajusta a largura automaticamente */
     height: 100%; /* Ajusta a altura para cobrir uma boa parte da tela */
@@ -99,24 +91,47 @@ body {
     object-fit: cover; /* Garante que a imagem cubra toda a área disponível */
 }
 
+/* Substituindo os floats por flexbox */
+.grid-2 {
+    flex: 0 0 calc(16.66% - 16px);
+    margin: 8px;
+    padding: 16px 0;
+}
 
-/* Barra de tarefas fixa no final */
+.grid-3 {
+    flex: 0 0 calc(25% - 16px);
+    margin: 8px;
+    padding: 16px 0;
+}
+
+.grid-4 {
+    flex: 0 0 calc(33.33% - 16px);
+    margin: 8px;
+    padding: 16px 0;
+}
+
+.grid-5 {
+    flex: 0 0 calc(41.66% - 16px);
+    margin: 8px;
+    padding: 16px 0;
+}
+
+/* ===== BARRA DE TAREFAS ===== */
 .barraTarefas {
     width: 100%;
     height: 3em;
-    background-color: #680002; /* Cor vermelha */
+    background-color: #680002;
     position: fixed;
     bottom: 0;
     left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0 20px;
     z-index: 1;
 }
 
-/* Estilo do botão de estrela na barra de tarefas */
+/* Menu Estrela */
 .estrela {
     position: relative;
     cursor: pointer;
@@ -128,18 +143,17 @@ body {
     align-items: center;
 }
 
-/* Ícone da estrela */
 .estrela i {
     font-size: 1.5em;
+    color: #fff;
 }
 
-/* Star menu styling */
 .estrela-menu {
     display: none;
     position: absolute;
     bottom: 40px;
     left: 0;
-    background-color: #202020;
+    background-color: #330303;
     border: 1px solid #424242;
     border-radius: 5px;
     width: 180px;
@@ -170,7 +184,30 @@ body {
     text-align: center;
 }
 
-/* Overlay para fundo com blur */
+/* Relógio */
+.relogio {
+    margin-left: auto;
+    margin-right: 20px;
+    color: white;
+}
+
+.relogio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+}
+
+#hora {
+    font-size: 1em;
+}
+
+#data {
+    font-size: 0.9em;
+    text-transform: capitalize;
+}
+
+/* ===== POP-UPS E ANIMAÇÕES ===== */
 .app-overlay {
     position: fixed;
     left: 0;
@@ -184,7 +221,6 @@ body {
     transition: opacity 0.3s ease;
 }
 
-/* Tela específica do app */
 .app-screen {
     position: fixed;
     left: 0;
@@ -199,46 +235,9 @@ body {
     animation: appEnterMac 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     display: flex;
     flex-direction: column;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes appEnterMac {
-    0% {
-        transform: scale(0.7);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.02) translate(-50%, -50%);
-        left: 50%;
-        top: 50%;
-    }
-    100% {
-        transform: scale(1) translate(-50%, -50%);
-        left: 50%;
-        top: 50%;
-        opacity: 1;
-    }
-}
-
-/* Animação de saída */
-.app-screen.closing {
-    animation: appExitMac 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes appExitMac {
-    0% {
-        transform: scale(1) translate(-50%, -50%);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(0.8) translate(-50%, -50%);
-        opacity: 0;
-    }
-}
-
-/* Estilo do cabeçalho da janela do app */
+/* Cabeçalho do Pop-up */
 .app-header {
     display: flex;
     justify-content: space-between;
@@ -268,66 +267,534 @@ body {
     color: #000;
 }
 
-/* Conteúdo do app */
+/* Conteúdo do Pop-up */
 .app-content {
     padding: 20px;
-    height: calc(100% - 60px); /* Altura total menos altura do header */
+    height: calc(100% - 60px);
     overflow-y: auto;
 }
 
-/* Estilo do relógio na barra de tarefas */
-.relogio {
-    margin-left: auto;
-    margin-right: 20px;
-    color: white;
+/* ===== ANIMAÇÕES ===== */
+@keyframes appEnterMac {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.02) translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+    }
+    100% {
+        transform: scale(1) translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        opacity: 1;
+    }
 }
 
-.relogio-container {
+@keyframes appExitMac {
+    0% {
+        transform: scale(1) translate(-50%, -50%);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.8) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+/* ===== ANIMAÇÃO DE FADE ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* ===== UTILITÁRIOS ===== */
+/* Classes utilitárias que são usadas em vários lugares */
+.color-gradient {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff6b6b 0%, #e90303 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.uppercase {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 25px;
+}
+
+.flex-center {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    line-height: 1.2;
+    flex-direction: column;
 }
 
-#hora {
-    font-size: 1em;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-#data {
-    font-size: 0.9em;
-    text-transform: capitalize;
+/* ===== MARGENS E ESPAÇAMENTOS ===== */
+.mt-1 { margin-top: 1rem; }
+.mt-4 { margin-top: 4rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+/* PROJETOS CSS */
+
+/* Container principal dos projetos */
+.projetos-content {
+    padding: 20px;
+    height: 100vh;
+    background: url('../img/wallpaper1.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    overflow-y: auto;
 }
 
-.copyright{
-    font-size: 0.8rem;
+/* Container dos arquivos usando flexbox */
+.files-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px;
+}
+
+/* Estilo de cada arquivo */
+.file-item {
+    text-align: center;
+    width: 120px;
+    height: 140px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.file-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Estilo do ícone do arquivo */
+.file-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
+}
+
+/* Estilo do nome do arquivo */
+.file-item p {
+    font-size: 14px;
+    color: #580000;
+    margin: 0;
+    word-break: break-word;
     text-align: center;
 }
 
-/* Animation screens */
+/* Estilo dos links */
+.file-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* RESUMO CSS */
+
+/* Estilo da seção principal */
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 96px 24px;
+}
+
+@media screen and (max-width: 960px) {
+    .container {
+        flex-direction: column;
+        padding: 32px 16px;
+    }
+}
+
+/* Estilos para a grid */
+.grid-2 {
+    flex: 0 0 calc(16.66% - 16px);
+    margin: 8px;
+    padding: 16px 0;
+}
+
+.grid-5 {
+    flex: 0 0 calc(41.66% - 16px);
+    margin: 8px;
+    padding: 16px 0;
+}
+
+/* Estilo para textos */
+.uppercase {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 25px;
+}
+
+.color-gradient {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff6b6b 0%, #e90303 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Estilo para a posição do conteúdo */
+.relative {
+    position: relative;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-4 {
+    margin-top: 4rem;
+}
+
+.text-presentation-design, .text-presentation-code, .text-presentation-motion, .text-presentation-3d {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    z-index: -1;
+}
+
+.text-presentation-code {
+    top: 30%;
+    left: 86%;
+}
+
+.text-presentation-motion {
+    top: 60%;
+    left: 0%;
+}
+
+.text-presentation-3d {
+    top: 60%;
+    left: 86%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* EXPERIENCIA CSS */
+
+/* Container da seção de "Sobre" */
+#section-about {
+    padding-top: 60px; /* Espaço adicional do cabeçalho */
+    background: url('../img/wallpaper1.jpeg') no-repeat center center fixed; /* Fundo da tela */
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+/* Estilo do grid para as divisões */
+.grid-4 {
+    flex: 0 0 calc(33.33% - 16px); /* Distribuindo em 3 colunas */
+    margin: 8px;
+    padding: 16px 0;
+}
+
+/* Para dispositivos pequenos, a grid se torna uma coluna única */
+@media screen and (max-width: 960px) {
+    .grid-4 {
+        flex: 0 0 100%;
+    }
+}
+
+/* Alinhamento do texto na experiência */
+.grid-nobreak-4 {
+    flex: 0 0 calc(33.333% - 16px);
+    margin-right: 8px;
+    padding: 16px 0;
+}
+
+.grid-nobreak-8 {
+    flex: 0 0 calc(66.666% - 16px);
+    padding: 16px 0;
+}
+
+/* Ajuste para dispositivos móveis */
+@media screen and (max-width: 960px) {
+    .grid-nobreak-4, .grid-nobreak-8 {
+        flex: 0 0 100%;
+    }
+}
+
+/* Estilo das imagens no bloco de educação */
+h6.color-gray {
+    color: #414651;
+}
+
+/* Educação */
+.grid-nobreak-4 h6 {
+    font-size: 16px;
+    color: #2a0a0a;
+}
+
+.grid-nobreak-8 h6 {
+    font-size: 18px;
+    color: #210606;
+}
+
+@media screen and (max-width: 960px) {
+    #section-about {
+        padding-top: 40px;
+    }
+}
+
+/* CONTATO CSS */
+
+/* Container principal */
+#section-links {
+    padding: 20px;
+    height: 100vh;
+    background: url('../img/wallpaper1.jpeg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estrutura da grid */
+.grid-3 {
+    flex: 0 0 calc(25% - 16px);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 20px 30px;
+    margin: 10px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.grid-3:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Alinhamento dos elementos */
+.flex-start-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Ícones */
+.icon-s {
+    width: 25px;
+    height: 25px;
+    transition: transform 0.3s ease;
+}
+
+.grid-3:hover .icon-s {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Links */
+.link-external {
+    font-family: "Outfit", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #680002; /* Vermelho vinho */
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.link-external::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #680002;
+    transition: width 0.3s ease;
+}
+
+.link-external:hover::after {
+    width: 100%;
+}
+
+/* Responsividade */
+@media screen and (max-width: 960px) {
+    .grid-3 {
+        width: 80%;
+        margin: 10px auto;
+    }
+}
+
+/* HABILIDADES CSS */
+
+/* Estilos para a seção de "Techs & Tools" */
+
+/* Estilos para as imagens dos ícones de ferramentas */
+.icon-app {
+    width: 48px;
+    height: 48px;
+    transition: 0.3s ease;
+}
+
+/* Estilo dos links de ferramentas */
+a {
+    color: #F5F7F7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #6BBAFF; /* Cor ao passar o mouse */
+}
+
+/* Estilo do conteúdo na grid de "Techs & Tools" */
+.grid-nobreak-3 {
+    flex: 0 0 calc(25% - 16px); /* Divisão em 4 colunas */
+    margin: 8px;
+    padding: 16px 0;
+}
+
+/* Para telas menores, a grid se transforma em 1 coluna */
+@media screen and (max-width: 960px) {
+    .grid-nobreak-3 {
+        flex: 0 0 100%;
+    }
+}
+
+/* Alinhamento dos elementos dentro de cada grid */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Espaçamento inferior entre as imagens e os textos */
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+/* Estilos para a seção de "Skills" */
+.hidden {
+    display: none;
+}
+
+.expertise-motion, .expertise-frontend, .expertise-ui, .expertise-ux, .expertise-experience, .expertise-creativity, .expertise-filmmaker {
+    font-family: "Outfit", sans-serif;
+    font-size: 24px;
+    color: #F5F7F7;
+    margin-bottom: 10px;
+}
+
+/* Flexbox para a disposição das habilidades */
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para os títulos da seção de habilidades */
+h6 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #F5F7F7;
+}
+
+.color-gradient {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff6b6b 0%, #e90303 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media screen and (max-width: 768px) {
+    /* Apps e ícones */
+    .apps {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .app {
+        width: 80px;
+        height: 100px;
+    }
+
+    /* Wallpaper */
+    .fotowallpaper img {
+        width: 100%;
+        margin-right: 0;
+        opacity: 0.3;
+    }
+
+    /* Pop-ups */
+    .app-screen {
+        width: 95%;
+        max-height: 90%;
+        overflow-y: auto;
+    }
+
+    .grid-2, .grid-3, .grid-4, .grid-5 {
+        flex: 0 0 100%;
+        margin: 5px 0;
+    }
+
+    .barraTarefas {
+        height: 2.5em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .apps {
+        gap: 5px;
+    }
+
+    .app {
+        width: 70px;
+        height: 90px;
+    }
+
+    .app-screen {
+        width: 98%;
+        max-height: 95%;
+    }
+}
+
+/* ===== ANIMAÇÃO DE TELA ===== */
 .animation-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2000;
     display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    z-index: 9999;
 }
 
-.suspend-screen {
-    background-color: #5a0202;
-}
-
-.restart-screen {
-    background-color: #1a1a1a;
-}
-
-.shutdown-screen {
-    background-color: #000;
-}
+.suspend-screen { background-color: #5a0202; }
+.restart-screen { background-color: #1a1a1a; }
+.shutdown-screen { background-color: #000; }
 
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -338,3 +805,4 @@ body {
     from { opacity: 1; }
     to { opacity: 0; }
 }
+

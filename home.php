@@ -49,20 +49,22 @@
         <!-- Barra de Tarefas -->
         <div class="barraTarefas">
             <div class="estrela">
-                <i class="fa-solid fa-star" style="color:rgb(255, 255, 255);"></i>
-                <div class="estrela-menu">
-                    <div class="menu-item" id="suspender">
-                        <i class="fa-solid fa-moon"></i>
-                        <span>Suspender</span>
-                    </div>
-                    <div class="menu-item" id="reiniciar">
-                        <i class="fa-solid fa-sync"></i>
-                        <span>Reiniciar</span>
-                    </div>
-                    <div class="menu-item" id="desligar">
-                        <i class="fa-solid fa-power-off"></i>
-                        <span>Desligar</span>
-                    </div>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            
+            <!-- Menu da estrela -->
+            <div class="estrela-menu">
+                <div class="menu-item" id="suspender">
+                    <i class="fa-solid fa-moon"></i>
+                    Suspender
+                </div>
+                <div class="menu-item" id="reiniciar">
+                    <i class="fa-solid fa-sync"></i>
+                    Reiniciar
+                </div>
+                <div class="menu-item" id="desligar">
+                    <i class="fa-solid fa-power-off"></i>
+                    Desligar
                 </div>
             </div>
             <div class="relogio">

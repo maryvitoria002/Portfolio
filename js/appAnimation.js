@@ -27,7 +27,7 @@ setInterval(atualizarRelogio, 1000);
 
 document.querySelectorAll('.app').forEach(app => {
     app.addEventListener('click', async () => {
-        // Cria overlay com blur
+                // Cria overlay com blur
         const overlay = document.createElement('div');
         overlay.classList.add('app-overlay');
         document.body.appendChild(overlay);
@@ -67,8 +67,9 @@ document.querySelectorAll('.app').forEach(app => {
             appScreen.querySelector('.app-content').innerHTML = '<p>Erro ao carregar conteúdo</p>';
         }
 
-        // Fecha a janela ao clicar no overlay ou no botão fechar
+        // Função para fechar com scroll restaurado
         const closeWindow = () => {
+            document.body.style.overflow = 'auto';
             appScreen.classList.add('closing');
             overlay.style.opacity = '0';
             
@@ -78,7 +79,9 @@ document.querySelectorAll('.app').forEach(app => {
             }, 300);
         };
 
+        // Fecha a janela ao clicar no overlay ou no botão fechar
         overlay.addEventListener('click', closeWindow);
         appScreen.querySelector('.close-btn').addEventListener('click', closeWindow);
     });
 });
+

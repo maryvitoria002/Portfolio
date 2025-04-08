@@ -46,6 +46,30 @@
                     <p>Noticias_cidades.html</p>
                 </a>
             </div>
+
+            <!-- Projeto 5 -->
+            <div class="file-item">
+                <a href="https://maryvitoria002.github.io/TechBlog/" target="_blank">
+                    <img src="./img/file.png" alt="Projeto 5" class="file-icon">
+                    <p>Techblog.html</p>
+                </a>
+            </div>
+
+            <!-- Projeto 6 -->
+            <div class="file-item">
+                <a href="https://maryvitoria002.github.io/Cadastre-se/" target="_blank">
+                    <img src="./img/file.png" alt="Projeto 6" class="file-icon">
+                    <p>Pagina_login.html</p>
+                </a>
+            </div>
+
+            <!-- Projeto 7 -->
+            <div class="file-item">
+                <a href="https://maryvitoria002.github.io/Cadastro_aluno/" target="_blank">
+                    <img src="./img/file.png" alt="Projeto 7" class="file-icon">
+                    <p>Cadastro_aluno.html</p>
+                </a>
+            </div>
         </div>
     </div>
 </body>

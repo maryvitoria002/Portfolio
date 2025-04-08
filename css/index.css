@@ -4,7 +4,7 @@ body {
     position: relative;
 }
 
-/* Adicionar pseudo-elemento para aplicar o blur */
+/* Adicionar aqui pra aplicar o blur */
 body::before {
     content: "";
     position: absolute;
