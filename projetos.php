@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Projetos</title>
-        <link rel="stylesheet" href="./css/projetos.css">
-        <link rel="shortcut icon" href="./img/favicon.png">
-        <script src="https://kit.fontawesome.com/9c2b5a2876.js" crossorigin="anonymous"></script>
-    </head>
-</html>
+<?php 
+    $titulo = "Projetos | Mary";
+    // $linkcss = "./css/projetos.css";
+    include_once ("./components/head.php");
+?>
 
 <body>
     <div class="projetos-content">
@@ -28,8 +22,6 @@
                     <p>Passeio_Balões.html</p>
                 </a>
             </div>
-
-            
 
             <!-- Projeto 3 -->
             <div class="file-item">
@@ -70,7 +62,8 @@
                     <p>Cadastro_aluno.html</p>
                 </a>
             </div>
-        </div>
+        </div>        </div>
     </div>
 </body>
+
 

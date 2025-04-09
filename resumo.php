@@ -21,7 +21,7 @@
                     </h3>
                 </div>
                 <div>
-                    <p class="mt-4" style="max-width: 300px;">
+                    <p style="max-width: 300px;">
                         Adoro aprender coisas novas, me adapto rápido e sempre estou estudando e precisando de seu dinheiro!
                     </p>
                 </div>
@@ -30,15 +30,13 @@
             <div class="grid-2 flex-start-end">
                 <h6 class="uppercase color-gradient">E eu sei</h6>
             </div>
-            <div class="grid-5 relative py-0">
+            <div class="grid-5 relative">
                 <h2 class="text-presentation-design">Design</h2>
                 <h2 class="text-presentation-code">Code</h2>
                 <h2 class="text-presentation-motion">Motion</h2>
                 <h2 class="text-presentation-3d">3D</h2>
 
                 <img src="./img/bolinhas.png">
-               
-
             </div>
         </div>
     </section>
